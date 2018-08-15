@@ -55,9 +55,21 @@ public class OrdersController {
 	@Value(value = "${http.timeout:5}")
 	private long timeout;
 
+	@RequestMapping(path = "/hallo", method = RequestMethod.GET)
+	public String getHello() {
+		return "Hello World.";
+	}
+
+	@ResponseStatus(HttpStatus.OK)
+	@RequestMapping(method = RequestMethod.GET, path = "/penis")
+	public @ResponseBody String getHealth() {
+		return "du pimmel";
+	}
+
 	@ResponseStatus(HttpStatus.CREATED)
 	@RequestMapping(path = "/orders", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
 	public @ResponseBody CustomerOrder newOrder(@RequestBody NewOrderResource item) {
+		LOG.info("Hallo OrdersProcess");
 
 		try {
 

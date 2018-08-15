@@ -1,9 +1,9 @@
 version: '2'
 
 services:
-  orders:
-    image: weaveworksdemos/orders
-    hostname: orders
+  ordersprocess:
+    image: weaveworksdemos/ordersprocess
+    hostname: ordersprocess
     restart: always
     cap_drop:
       - all
